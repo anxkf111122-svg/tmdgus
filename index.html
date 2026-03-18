@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="ko" data-theme="light" style=""><head>
+<html lang="ko" data-theme="light" style="">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>프리미엄 분석 번호 무료 나눔 서비스</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
@@ -25,6 +26,15 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
     }
 
     body {
@@ -38,6 +48,12 @@
       margin: 0 auto;
       padding: 0 0 150px;
       overflow-x: hidden;
+    }
+
+    img {
+      -webkit-user-drag: none;
+      user-drag: none;
+      pointer-events: auto;
     }
 
     h1,
@@ -558,6 +574,31 @@
       transform: translateY(0);
     }
 
+    .capture-block {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      z-index: 2147483647;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      padding: 24px;
+      font-size: 1.2rem;
+      line-height: 1.7;
+    }
+
+    .capture-block.show {
+      display: flex;
+    }
+
+    @media print {
+      body {
+        display: none !important;
+      }
+    }
+
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.3rem; }
       .method-grid { grid-template-columns: 1fr; }
@@ -566,6 +607,13 @@
   </style>
 </head>
 <body style="">
+
+  <div id="captureBlock" class="capture-block">
+    <div>
+      <strong style="font-size:1.5rem; color:#f0c040;">보안 정책이 적용된 페이지입니다.</strong><br><br>
+      우클릭, 복사, 일부 단축키 및 인쇄 기능이 제한되어 있습니다.
+    </div>
+  </div>
 
   <!-- 1. HERO SECTION -->
   <header class="hero">
@@ -582,7 +630,7 @@
     <div class="section-title reveal visible">개발자 소개</div>
     <div class="profile-card reveal visible" style="text-align: left">
       <a href="http://qr.kakao.com/talk/irC.i1WOcie9sxLJWXGdaIlO0OM-" target="_blank" rel="noopener noreferrer">
-        <img src="https://page.gensparksite.com/get_upload_url/249eddde928d20f2d3a920e81e232c3f3b440f84a71a9234b605eb75e2e5774c/default/be7920a0-241b-4025-986f-c7a9fec1a71f" alt="개발자 사진" style="max-width: 100%; height: auto; display: block;" data-height-listener-added="true">
+        <img src="https://page.gensparksite.com/get_upload_url/249eddde928d20f2d3a920e81e232c3f3b440f84a71a9234b605eb75e2e5774c/default/be7920a0-241b-4025-986f-c7a9fec1a71f" alt="개발자 사진" style="max-width: 100%; height: auto; display: block;" draggable="false">
       </a>
       <div class="profile-name" style="text-align: left; margin-top: 16px;">김승현</div>
       <div class="profile-role" style="text-align: left;">데이터 분석가 / 개발자</div>
@@ -600,7 +648,7 @@
   <section style="padding: 35px 20px; background: linear-gradient(135deg, rgba(240, 192, 64, 0.12), rgba(26, 42, 74, 0.8)); border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
     <div style="max-width: 600px; margin: 0 auto; background: var(--card-bg); border: 2px solid var(--gold-main); border-radius: 16px; padding: 30px 25px; text-align: center; box-shadow: 0 0 20px rgba(240, 192, 64, 0.15);">
       <a href="http://qr.kakao.com/talk/irC.i1WOcie9sxLJWXGdaIlO0OM-" target="_blank" rel="noopener noreferrer">
-        <img src="https://page.gensparksite.com/get_upload_url/249eddde928d20f2d3a920e81e232c3f3b440f84a71a9234b605eb75e2e5774c/default/1bf7ccff-822f-4dfd-a728-639fb550a020" alt="Uploaded Image" style="max-width: 100%; height: auto; display: block;" data-height-listener-added="true">
+        <img src="https://page.gensparksite.com/get_upload_url/249eddde928d20f2d3a920e81e232c3f3b440f84a71a9234b605eb75e2e5774c/default/1bf7ccff-822f-4dfd-a728-639fb550a020" alt="Uploaded Image" style="max-width: 100%; height: auto; display: block;" draggable="false">
       </a>
       <p style="font-size: 1.55rem; font-weight: 900; color: var(--gold-main); margin-bottom: 14px; line-height: 1.5;">
         설문에 참여해주셔서 감사합니다.
@@ -619,7 +667,7 @@
     <div class="section-subtitle reveal visible">딱 2단계, 30초면 신청 완료!</div>
 
     <a href="http://qr.kakao.com/talk/irC.i1WOcie9sxLJWXGdaIlO0OM-" target="_blank" rel="noopener noreferrer">
-      <img src="https://page.gensparksite.com/get_upload_url/249eddde928d20f2d3a920e81e232c3f3b440f84a71a9234b605eb75e2e5774c/default/dd41ccc4-1e1d-4400-8ffa-fd6e266515dd" alt="Uploaded Image" style="max-width: 100%; height: auto; display: block;" class="reveal visible" data-height-listener-added="true">
+      <img src="https://page.gensparksite.com/get_upload_url/249eddde928d20f2d3a920e81e232c3f3b440f84a71a9234b605eb75e2e5774c/default/dd41ccc4-1e1d-4400-8ffa-fd6e266515dd" alt="Uploaded Image" style="max-width: 100%; height: auto; display: block;" class="reveal visible" draggable="false">
     </a>
 
     <div class="part-card reveal visible">
@@ -670,25 +718,25 @@
     <div class="results-grid">
       <div class="result-card reveal visible" data-reveal-delay="0" style="transition-delay: 0s;">
         <a href="http://qr.kakao.com/talk/irC.i1WOcie9sxLJWXGdaIlO0OM-" target="_blank" rel="noopener noreferrer">
-          <img src="https://page.gensparksite.com/get_upload_url/249eddde928d20f2d3a920e81e232c3f3b440f84a71a9234b605eb75e2e5774c/default/3aff3095-6cd9-437a-b5de-c0e827d3b547" alt="Uploaded Image" id="inserted-img-1773840870498-afr8ad" style="max-width: 100%; height: auto; display: block;" data-height-listener-added="true">
+          <img src="https://page.gensparksite.com/get_upload_url/249eddde928d20f2d3a920e81e232c3f3b440f84a71a9234b605eb75e2e5774c/default/3aff3095-6cd9-437a-b5de-c0e827d3b547" alt="Uploaded Image" id="inserted-img-1773840870498-afr8ad" style="max-width: 100%; height: auto; display: block;" draggable="false">
         </a>
         <div class="result-caption">🎉 제1195회 수동 1등 · 당첨금 2,939,186,738원</div>
       </div>
       <div class="result-card reveal visible" data-reveal-delay="1" style="transition-delay: 0.15s;">
         <a href="http://qr.kakao.com/talk/irC.i1WOcie9sxLJWXGdaIlO0OM-" target="_blank" rel="noopener noreferrer">
-          <img src="https://page.gensparksite.com/get_upload_url/249eddde928d20f2d3a920e81e232c3f3b440f84a71a9234b605eb75e2e5774c/default/511cc9b0-4cbe-4046-9c4b-7a393151c03b" alt="Uploaded Image" id="inserted-img-1773840883329-61usde" style="max-width: 100%; height: auto; display: block;" data-height-listener-added="true">
+          <img src="https://page.gensparksite.com/get_upload_url/249eddde928d20f2d3a920e81e232c3f3b440f84a71a9234b605eb75e2e5774c/default/511cc9b0-4cbe-4046-9c4b-7a393151c03b" alt="Uploaded Image" id="inserted-img-1773840883329-61usde" style="max-width: 100%; height: auto; display: block;" draggable="false">
         </a>
         <div class="result-caption">🎉 제1191회 수동 1등 · 당첨금 1,536,334,355원</div>
       </div>
       <div class="result-card reveal visible" data-reveal-delay="2" style="transition-delay: 0.3s;">
         <a href="http://qr.kakao.com/talk/irC.i1WOcie9sxLJWXGdaIlO0OM-" target="_blank" rel="noopener noreferrer">
-          <img src="https://page.gensparksite.com/get_upload_url/249eddde928d20f2d3a920e81e232c3f3b440f84a71a9234b605eb75e2e5774c/default/f70715d1-cdcf-459c-beeb-996f2ef72c5c" alt="Uploaded Image" id="inserted-img-1773840894732-5e2buk" style="max-width: 100%; height: auto; display: block;" data-height-listener-added="true">
+          <img src="https://page.gensparksite.com/get_upload_url/249eddde928d20f2d3a920e81e232c3f3b440f84a71a9234b605eb75e2e5774c/default/f70715d1-cdcf-459c-beeb-996f2ef72c5c" alt="Uploaded Image" id="inserted-img-1773840894732-5e2buk" style="max-width: 100%; height: auto; display: block;" draggable="false">
         </a>
         <div class="result-caption">🎉 제1185회 수동 1등 · 당첨금 2,388,695,125원</div>
       </div>
       <div class="result-card reveal visible" data-reveal-delay="3" style="transition-delay: 0.45s;">
         <a href="http://qr.kakao.com/talk/irC.i1WOcie9sxLJWXGdaIlO0OM-" target="_blank" rel="noopener noreferrer">
-          <img src="https://page.gensparksite.com/get_upload_url/249eddde928d20f2d3a920e81e232c3f3b440f84a71a9234b605eb75e2e5774c/default/0c635c0e-6ad4-4b7a-adbe-0254aef417d2" alt="Uploaded Image" id="inserted-img-1773840906971-q6q5v3" style="max-width: 100%; height: auto; display: block;" data-height-listener-added="true">
+          <img src="https://page.gensparksite.com/get_upload_url/249eddde928d20f2d3a920e81e232c3f3b440f84a71a9234b605eb75e2e5774c/default/0c635c0e-6ad4-4b7a-adbe-0254aef417d2" alt="Uploaded Image" id="inserted-img-1773840906971-q6q5v3" style="max-width: 100%; height: auto; display: block;" draggable="false">
         </a>
         <div class="result-caption">🎉 제1180회 수동 1등 · 당첨금 2,535,566,421원</div>
       </div>
@@ -701,7 +749,7 @@
     <div class="section-subtitle reveal visible">복권 구매 후 QR코드를 스캔하면 바로 확인 가능합니다.</div>
 
     <a href="http://qr.kakao.com/talk/irC.i1WOcie9sxLJWXGdaIlO0OM-" target="_blank" rel="noopener noreferrer">
-      <img src="https://page.gensparksite.com/get_upload_url/249eddde928d20f2d3a920e81e232c3f3b440f84a71a9234b605eb75e2e5774c/default/a5a7ce1d-2db6-48c3-abd0-0b3ca2689a20" alt="Uploaded Image" style="max-width: 100%; height: auto; display: block;" class="reveal visible" data-height-listener-added="true">
+      <img src="https://page.gensparksite.com/get_upload_url/249eddde928d20f2d3a920e81e232c3f3b440f84a71a9234b605eb75e2e5774c/default/a5a7ce1d-2db6-48c3-abd0-0b3ca2689a20" alt="Uploaded Image" style="max-width: 100%; height: auto; display: block;" class="reveal visible" draggable="false">
     </a>
 
     <div class="step-list">
@@ -726,7 +774,7 @@
     <div class="section-subtitle reveal">딱 2단계, 30초면 신청 완료!</div>
 
     <a href="http://qr.kakao.com/talk/irC.i1WOcie9sxLJWXGdaIlO0OM-" target="_blank" rel="noopener noreferrer">
-      <img src="https://page.gensparksite.com/get_upload_url/249eddde928d20f2d3a920e81e232c3f3b440f84a71a9234b605eb75e2e5774c/default/5393dae6-7010-4e7b-b895-3f107741204a" alt="Uploaded Image" style="max-width: 100%; height: auto; display: block;" class="reveal" data-height-listener-added="true">
+      <img src="https://page.gensparksite.com/get_upload_url/249eddde928d20f2d3a920e81e232c3f3b440f84a71a9234b605eb75e2e5774c/default/5393dae6-7010-4e7b-b895-3f107741204a" alt="Uploaded Image" style="max-width: 100%; height: auto; display: block;" class="reveal" draggable="false">
     </a>
 
     <div class="part-card reveal">
@@ -920,7 +968,7 @@
   <div class="sticky-cta">
     <div class="sticky-inner">
       <a href="http://qr.kakao.com/talk/irC.i1WOcie9sxLJWXGdaIlO0OM-" target="_blank" rel="noopener noreferrer" style="width: 100%; max-width: 500px; display: block; margin: 0 auto;">
-        <img src="https://page.gensparksite.com/get_upload_url/249eddde928d20f2d3a920e81e232c3f3b440f84a71a9234b605eb75e2e5774c/default/5624f59d-8236-4ea3-ada2-35ae51affd57" alt="카카오톡 친구추가 버튼" style="max-width: 100%; height: auto; display: block;" data-height-listener-added="true">
+        <img src="https://page.gensparksite.com/get_upload_url/249eddde928d20f2d3a920e81e232c3f3b440f84a71a9234b605eb75e2e5774c/default/5624f59d-8236-4ea3-ada2-35ae51affd57" alt="카카오톡 친구추가 버튼" style="max-width: 100%; height: auto; display: block;" draggable="false">
       </a>
     </div>
   </div>
@@ -1011,13 +1059,117 @@
         });
       }
 
+      function isEditable(target) {
+        if (!target) return false;
+        var tag = target.tagName;
+        return (
+          target.isContentEditable ||
+          tag === 'INPUT' ||
+          tag === 'TEXTAREA' ||
+          tag === 'SELECT'
+        );
+      }
+
+      function showCaptureBlock() {
+        var block = document.getElementById('captureBlock');
+        if (!block) return;
+        block.classList.add('show');
+        setTimeout(function () {
+          block.classList.remove('show');
+        }, 1200);
+      }
+
+      function initSecurity() {
+        document.addEventListener('contextmenu', function (e) {
+          e.preventDefault();
+        });
+
+        document.addEventListener('dragstart', function (e) {
+          e.preventDefault();
+        });
+
+        document.addEventListener('selectstart', function (e) {
+          if (!isEditable(e.target)) {
+            e.preventDefault();
+          }
+        });
+
+        document.addEventListener('copy', function (e) {
+          if (!isEditable(e.target)) {
+            e.preventDefault();
+          }
+        });
+
+        document.addEventListener('cut', function (e) {
+          if (!isEditable(e.target)) {
+            e.preventDefault();
+          }
+        });
+
+        document.addEventListener('paste', function (e) {
+          if (!isEditable(e.target)) {
+            e.preventDefault();
+          }
+        });
+
+        document.addEventListener('keydown', function (e) {
+          var key = (e.key || '').toLowerCase();
+
+          if (e.key === 'F12') {
+            e.preventDefault();
+            return false;
+          }
+
+          if (e.ctrlKey && e.shiftKey && ['i', 'j', 'c', 's'].includes(key)) {
+            e.preventDefault();
+            return false;
+          }
+
+          if ((e.ctrlKey || e.metaKey) && ['c', 'x', 'u', 's', 'p', 'a'].includes(key)) {
+            e.preventDefault();
+            return false;
+          }
+
+          if (e.key === 'PrintScreen') {
+            e.preventDefault();
+            try {
+              if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText('');
+              }
+            } catch (err) {}
+            showCaptureBlock();
+            return false;
+          }
+        });
+
+        document.querySelectorAll('img').forEach(function (img) {
+          img.setAttribute('draggable', 'false');
+        });
+
+        document.addEventListener('keyup', function (e) {
+          if (e.key === 'PrintScreen') {
+            showCaptureBlock();
+          }
+        });
+
+        document.addEventListener('visibilitychange', function () {
+          if (document.hidden) {
+            showCaptureBlock();
+          }
+        });
+      }
+
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initReveal);
+        document.addEventListener('DOMContentLoaded', function () {
+          initReveal();
+          initSecurity();
+        });
       } else {
         initReveal();
+        initSecurity();
       }
     })();
   </script>
 
-
-</body></html>
+</body>
+</html>
